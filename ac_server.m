@@ -9,7 +9,7 @@ classdef ac_server < handle
     
     methods
         function obj = ac_server()
-            if versionLessThan('matlab','9.9')
+            if verLessThan('matlab','9.9')
                 obj.u = udp('127.0.0.1',4420);
                 fopen(obj.u);
             else
@@ -20,7 +20,7 @@ classdef ac_server < handle
         end
         
         function obj = getMap(obj)
-            if versionLessThan('matlab','9.9')
+            if verLessThan('matlab','9.9')
                 fwrite(obj.u,'init');
                 path = fscanf(obj.u);
             else
@@ -80,7 +80,7 @@ classdef ac_server < handle
         end
         
         function obj = poll(obj)
-            if versionLessThan('matlab','9.9')
+            if verLessThan('matlab','9.9')
                 fwrite(obj.u,'query')
             else
                 writeline(obj.u, 'query','127.0.0.1',4420);

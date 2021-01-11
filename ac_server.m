@@ -1,6 +1,4 @@
 classdef ac_server < handle
-    %AC_SERVER �� Ŭ������ ��� ���� ��ġ
-    %   �ڼ��� ���� ��ġ
     
     properties
         ai
@@ -11,13 +9,24 @@ classdef ac_server < handle
     
     methods
         function obj = ac_server()
-            obj.u = udpport('LocalHost','127.0.0.1');
+            if versionLessThan('matlab','9.9')
+                obj.u = udp('127.0.0.1',4420);
+                fopen(obj.u);
+            else
+                obj.u = udpport('LocalHost','127.0.0.1');
+            end
+                
             obj.joy = mvJoy(1);
         end
         
         function obj = getMap(obj)
-            writeline(obj.u, 'init','127.0.0.1',4420);
-            path = readline(obj.u);
+            if versionLessThan('matlab','9.9')
+                fwrite(obj.u,'init');
+                path = fscanf(obj.u);
+            else
+                writeline(obj.u, 'init','127.0.0.1',4420);
+                path = readline(obj.u);
+            end
             try
                 aiFile = fopen(path,'rb');
                 header = fread(aiFile, 4, 'int32');
@@ -71,7 +80,12 @@ classdef ac_server < handle
         end
         
         function obj = poll(obj)
-            writeline(obj.u, 'query','127.0.0.1',4420);
+            if versionLessThan('matlab','9.9')
+                fwrite(obj.u,'query')
+            else
+                writeline(obj.u, 'query','127.0.0.1',4420);
+            end
+            
             obj.data = jsondecode(readline(obj.u));
         end
         

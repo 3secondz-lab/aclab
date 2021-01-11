@@ -1,6 +1,6 @@
 classdef ac_server < handle
-    %AC_SERVER ÀÌ Å¬·¡½ºÀÇ ¿ä¾à ¼³¸í À§Ä¡
-    %   ÀÚ¼¼ÇÑ ¼³¸í À§Ä¡
+    %AC_SERVER ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡
+    %   ï¿½Ú¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡
     
     properties
         ai
@@ -75,7 +75,7 @@ classdef ac_server < handle
             obj.data = jsondecode(readline(obj.u));
         end
         
-        function obj = pull(obj,cmd_str,cmd_gas,cmd_brk)
+        function obj = push(obj,cmd_str,cmd_gas,cmd_brk)
             obj.joy.data.wAxisX = int32((cmd_str+1)/2*(32768));
             obj.joy.data.wAxisY = int32(cmd_gas*32768);
             obj.joy.data.wAxisZ = int32(cmd_brk*32768);

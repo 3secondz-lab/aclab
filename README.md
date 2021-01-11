@@ -21,4 +21,4 @@ __Only Work on Windows 64-bit__
 
 9. ac_server.poll() : get drive data into MATLAB, ac_server.data
 
-10. ac_server.pull(steering, gas, brake) : push control into Assetto Corsa
+10. ac_server.push(steering, gas, brake) : push control into Assetto Corsa

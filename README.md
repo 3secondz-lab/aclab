@@ -8,7 +8,7 @@ __Only Work on Windows 64-bit__
 
 4. run assetto corsa
 
-5. '''s = ac_server()'''
+5. ```s = ac_server()```
  on MATLAB
 
 6. set controller on Assetto Corsa and Allow Python App (aclab)
@@ -18,8 +18,11 @@ __Only Work on Windows 64-bit__
 
 7. start run on Assetto Corsa
 
-8. (ac_server_object).getMap() : convert AI path into MATLAB, ac_server.ai
+8. ```(ac_server_object).getMap()``` 
+convert AI path into MATLAB, ac_server.ai
 
-9. (ac_server_object).poll() : get drive data into MATLAB, ac_server.data
+9. ```(ac_server_object).poll()```
+get drive data into MATLAB, ac_server.data
 
-10. (ac_server_object).push(steering, gas, brake) : push control into Assetto Corsa
+10. ```(ac_server_object).push(steering, gas, brake)```  
+push control into Assetto Corsa

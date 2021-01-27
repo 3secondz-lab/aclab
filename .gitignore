@@ -1,3 +1,4 @@
 *.asv
 /casadi
 driver_conf.json
+*.png

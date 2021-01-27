@@ -1,0 +1,13 @@
+
+
+1. XXX/SteamApps/common/assettocorsa/system/cfg/assetto_corsa.ini 파일 내부의 ENABLE_DEV_APPS=0 을 1로 변경
+
+2. XXX/SteamApps/common/assettocorsa/apps/python 내부에 aclab_py 폴더 복사
+
+3. Assetto Corsa 실행 후 setting-general 하단의 aclab 체크
+
+4. 주행 -> TimeAttack 모드로 실행 후 화면 우측 메뉴바(마우스 가져다대면 나옴) 에서 AI 찾아서 in-game app 구동
+
+5. 주행 시작 후 Control+C 누르면 AI 모드로 진입. 
+
+6. 주행 종료 후 메인화면으로 돌아가면 aclab_py 폴더 내에 log.csv 생성됨.
